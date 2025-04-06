@@ -66,6 +66,7 @@ map("n", "<C-u>", "<C-u>zz", opts)  -- Scroll up and center cursor
 
 -- Fast open terminal
 map("n", "<leader>t", ":split | terminal<CR>", opts)  -- Open terminal in split
+map("t", "<ESC>", "<C-\\><C-n>", opts) -- exit insert mode in terminal
 
 -- Tab management
 map("n", "<leader>tn", ":tabnew<CR>", opts)  -- Open new tab

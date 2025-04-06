@@ -1,0 +1,105 @@
+let mapleader = " "
+
+" === General Vim Settings ===
+set clipboard=unnamedplus       " Use system clipboard for copy/paste
+set ignorecase                  " Case-insensitive search
+set smartcase                   " Case-sensitive search if uppercase used
+set incsearch                   " Incremental search
+set hlsearch                    " Highlight search matches
+set autoindent                  " Enable auto indentation
+set smartindent                 " Enable smart indentation
+set number relativenumber
+set idearefactormode=keep
+set NERDTree
+
+" Navigation options
+nmap <leader>w <action>(SaveAll)
+nmap <leader>h <action>(PreviousTab)
+nmap <leader>l <action>(NextTab)
+nmap <leader>q <action>(CloseContent)
+nmap <leader>f <action>(GotoFile)
+nmap <leader>fr <action>(RecentFiles)
+
+" Editor options
+nmap <leader>d <action>(EditorDuplicate)
+nmap J <action>(MoveLineDown)
+nmap K <action>(MoveLineUp)
+
+" Display options
+nmap <leader>z <action>(ToggleZenMode)
+
+" Open NERDTree | use 'q' to exit | use 'esc' to change focus to editor
+nmap <leader>e :NERDTree<CR>
+
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
+
+" Close Debug Window | Git Window | Probably all windows at the bottom of IDE; Have to press `ESC` first!
+nmap <leader>fa <action>(HideActiveWindow)
+
+" Window split
+nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>b :split<CR>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Refactoring
+map <leader>rn <Action>(RenameElement)
+map <leader>rm <Action>(ExtractMethod)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+map \r <Action>(ReformatCode)
+
+" Go to code
+nmap gd <Action>(GotoDeclaration)
+nmap gy <Action>(GotoTypeDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gu <Action>(ShowUsages)
+nmap gt <Action>(GotoTest)
+nmap gf <Action>(Forward)
+nmap gb <Action>(Back)
+nmap ge <Action>(ShowErrorDescription)
+nmap gh <Action>(QuickJavaDoc)
+nmap ga <Action>(ShowIntentionActions)
+
+" Execute code
+nmap \b <Action>(ToggleLineBreakpoint)
+nmap <leader>cd <Action>(Debug)
+nmap <leader>cr <Action>(Run)
+
+" Git actions
+nmap gia <Action>(Annotate)
+
+" Reload .vimrc
+nmap <leader>rl <action>(IdeaVim.ReloadVimRc.reload)
+
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)

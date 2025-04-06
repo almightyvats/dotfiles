@@ -21,5 +21,5 @@ require("lazy").setup({
     { import = "avats.plugins" },
   },
   install = { colorscheme = { "habamax" } },
-  checker = { enabled = true },
+  checker = { enabled = false },
 })
