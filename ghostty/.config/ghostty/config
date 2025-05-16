@@ -1,6 +1,6 @@
 # appearance
-theme = catppuccin-mocha
-background-opacity = 1
+theme = ayu
+background-opacity = 0.9
 background-blur-radius = 40
 font-family = JetBrainsMono Nerd Font
 font-size = 16

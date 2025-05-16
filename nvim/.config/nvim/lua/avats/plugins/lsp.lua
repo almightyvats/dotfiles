@@ -10,7 +10,7 @@ return {
       -- Setup Mason and ensure LSP servers are installed
       require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_installed = { "gopls", "clangd", "jdtls", "lua_ls" }  -- Ensure these LSPs are installed
+        ensure_installed = { "clangd", "jdtls", "lua_ls" }  -- Ensure these LSPs are installed
       })
 
       -- Common on_attach function to set keybindings

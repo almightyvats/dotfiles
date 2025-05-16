@@ -20,6 +20,6 @@ require("lazy").setup({
   spec = {
     { import = "avats.plugins" },
   },
-  install = { colorscheme = { "habamax" } },
+  install = { colorscheme = { "ayu" } },
   checker = { enabled = false },
 })
