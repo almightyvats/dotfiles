@@ -11,7 +11,7 @@ vim.g.mapleader = " "  -- Set space as the leader key
 map("n", "<leader>w", ":w<CR>", opts)  -- Save file
 
 -- Fast quitting with leader + q
-map("n", "<leader>q", ":q<CR>", opts)  -- Quit Neovim
+-- map("n", "<leader>q", ":q<CR>", opts)  -- Quit Neovim
 
 -- Navigate between splits with Ctrl + hjkl
 map("n", "<C-h>", "<C-w>h", opts)  -- Move to left split
@@ -30,7 +30,7 @@ map("n", "<S-l>", ":bnext<CR>", opts)  -- Go to the next buffer
 map("n", "<S-h>", ":bprevious<CR>", opts)  -- Go to the previous buffer
 
 -- Close buffer
-map("n", "<leader>c", ":bdelete<CR>", opts)  -- Close current buffer
+map("n", "<leader>q", ":bdelete<CR>", opts)  -- Close current buffer
 
 -- Keymaps for text manipulation
 
