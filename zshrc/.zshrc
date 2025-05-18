@@ -14,17 +14,23 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # fzf keybindings
 eval "$(fzf --zsh)"
-export FZF_DEFUALT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
-export FZF_CTRL_T_COMMAND="$FZF_DEFUALT_COMMAND"
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
-export FZF_DEFUALT_OPTS="--height 50% --layout=default --border --color=hl:#2ddbf"
+export FZF_DEFAULT_OPTS="--height 50% --layout=default --border --color=hl:#2ddbff"
+
 
 # Enable vi mode
 bindkey -v
 
 # Sourcing autosuggestions and syntax-highlighting
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ $OSTYPE == darwin* ]]; then
+	source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+	source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+else
+	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+	source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -65,6 +71,8 @@ fi
 export PATH="/Users/anuragvats/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-. "$HOME/.atuin/bin/env"
+if [[ $OSTYPE == darwin* ]]; then
+  . "$HOME/.atuin/bin/env"
+fi
 
 eval "$(atuin init zsh --disable-up-arrow)"
