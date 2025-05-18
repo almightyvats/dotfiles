@@ -10,7 +10,7 @@ return {
       -- Setup Mason and ensure LSP servers are installed
       require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_installed = { "gopls", "clangd", "jdtls", "lua_ls" }  -- Ensure these LSPs are installed
+        ensure_installed = { "clangd", "jdtls", "lua_ls" }  -- Ensure these LSPs are installed
       })
 
       -- Common on_attach function to set keybindings
@@ -23,10 +23,10 @@ return {
         map(bufnr, 'n', 'gd', '<Cmd>lua require("telescope.builtin").lsp_definitions()<CR>', opts)
 
         -- Find references
-        map(bufnr, 'n', 'gr', '<Cmd>lua require("telescope.builtin").lsp_references()<CR>', opts)
+        map(bufnr, 'n', 'gu', '<Cmd>lua require("telescope.builtin").lsp_references()<CR>', opts)
 
         -- Go to implementation
-        map(bufnr, 'n', 'gI', '<Cmd>lua require("telescope.builtin").lsp_implementations()<CR>', opts)
+        map(bufnr, 'n', 'gi', '<Cmd>lua require("telescope.builtin").lsp_implementations()<CR>', opts)
 
         -- Go to type definition
         map(bufnr, 'n', '<leader>D', '<Cmd>lua require("telescope.builtin").lsp_type_definitions()<CR>', opts)
@@ -41,7 +41,7 @@ return {
         map(bufnr, 'n', '<leader>rn', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
 
         -- Code action (can be run over an error or suggestion)
-        map(bufnr, 'n', '<leader>ca', '<Cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+        map(bufnr, 'n', 'ga', '<Cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
         -- Go to declaration
         map(bufnr, 'n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -51,7 +51,7 @@ return {
         map(bufnr, 'n', ']d', '<Cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 
         -- Show hover documentation
-        map(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+        map(bufnr, 'n', 'gh', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
 
         -- Show line diagnostics in a floating window
         map(bufnr, 'n', 'gl', '<Cmd>lua vim.diagnostic.open_float()<CR>', opts)
@@ -74,15 +74,15 @@ return {
       })
 
       -- Language servers setup
-      lspconfig.gopls.setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
+      -- lspconfig.gopls.setup({
+      --   capabilities = capabilities,
+      --   on_attach = on_attach,
+      -- })
 
-      lspconfig.clangd.setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
+      -- lspconfig.clangd.setup({
+      --   capabilities = capabilities,
+      --   on_attach = on_attach,
+      -- })
 
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
@@ -97,10 +97,10 @@ return {
         },
       })
 
-      lspconfig.jdtls.setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
+      -- lspconfig.jdtls.setup({
+      --   capabilities = capabilities,
+      --   on_attach = on_attach,
+      -- })
 
       lspconfig.sqlls.setup({
         on_attach = on_attach,
