@@ -2,7 +2,7 @@
 theme = rose-pine-moon
 background-opacity = 0.85
 background-blur-radius = 40
-font-family = JetBrainsMono Nerd Font
+font-family = Meslo LGM Nerd Font 
 font-size = 16
 cursor-style = block
 cursor-style-blink = false
