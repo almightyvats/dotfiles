@@ -7,7 +7,7 @@ return {
                 ensure_installed = {  -- Specify the languages you need
                     -- "go",       -- Go language support
                     "lua",      -- Lua language support
-                    -- "java",     -- Java language support
+                    "java",     -- Java language support
                 -- "cpp",      -- C++ language support
                     "sql",
                 },
