@@ -8,6 +8,9 @@ cursor-style = block
 cursor-style-blink = false
 cursor-invert-fg-bg = true
 mouse-hide-while-typing = true
+window-decoration = false
+shell-integration = zsh
+
 
 # macOS-specific settings
 macos-titlebar-style = tabs

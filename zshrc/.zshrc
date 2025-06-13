@@ -2,6 +2,8 @@
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 #
 # This setup might be a little different for linux (no time to add if statements)
+#
+export  IDF_PATH="/home/vats/project/esp/esp-idf"
 
 # Since zsh can't find homebrew and all the apps suddenly in /opt/homebrew
 export PATH=/opt/homebrew/bin:$PATH

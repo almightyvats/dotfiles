@@ -37,11 +37,50 @@ return {
       --   capabilities = capabilities,
       --   on_attach = on_attach,
       -- })
+      --
+      -- Check if the ESP-IDF environment variable is set
+ --       local esp_idf_path = os.getenv("IDF_PATH")
+ --       if esp_idf_path then
+ --         -- for esp-idf
+ --         lspconfig.clangd.setup{
+ --           -- handlers = handlers,
+ --           capabilities = capabilities,
+ --           on_attach = on_attach,
+ --           cmd = { "/home/vats/.espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clang", "--background-index", "--query-driver=**", },
+ --           root_dir = function()
+ --               -- leave empty to stop nvim from cd'ing into ~/ due to global .clangd file
+ --           end
+ --         }
+ --     else
+ --         -- clangd config
+ --      lspconfig.clangd.setup({
+ --        capabilities = capabilities,
+ --        on_attach = on_attach,
+ --      })
+ --     end
 
-      -- lspconfig.clangd.setup({
-      --   capabilities = capabilities,
-      --   on_attach = on_attach,
-      -- })
+      local util = require("lspconfig/util")
+
+      lspconfig.clangd.setup {
+      cmd = { "clangd" },  -- default clangd
+      capabilities = capabilities,
+      on_attach = on_attach,
+
+        on_new_config = function(new_config, new_root_dir)
+          -- Better detection: ESP-IDF projects usually have sdkconfig
+          local sdkconfig = util.path.join(new_root_dir, "sdkconfig")
+          if vim.fn.filereadable(sdkconfig) == 1 then
+            new_config.cmd = {
+              "/home/vats/.espressif/tools/esp-clang/esp-18.1.2_20240912/esp-clang/bin/clangd",
+              "--background-index",
+              "--query-driver=**",
+              "--compile-commands-dir=" .. new_root_dir
+            }
+          end
+        end,
+        root_dir = util.root_pattern("sdkconfig", "CMakeLists.txt", ".git"),
+      }
+
 
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
