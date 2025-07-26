@@ -15,6 +15,10 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango: Meslo LGM Nerd Font 16
 
+# setting up rofi
+bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun \
+		-config ~/.config/rofi/rofidmenu.rasi
+
 # setting up notification deamon
 exec --no-startup-id /usr/bin/dunst
 
@@ -82,7 +86,7 @@ bindsym $mod+n exec --no-startup-id /usr/bin/thunar
 bindsym $mod+p exec --no-startup-id flameshot gui 
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+i exec --no-startup-id dmenu_run 
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id ghostty
